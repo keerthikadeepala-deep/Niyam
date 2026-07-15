@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pramaan — Always audit-ready. AI-native QMS for Indian medical device manufacturers</title>
+<meta name="description" content="Pramaan is an AI-native quality management system for small and mid-size Indian medical device manufacturers. Upload your SOPs, get an ISO 13485 / MDR 2017 gap report in 30 minutes, and stay audit-ready every day — not just before the auditor arrives.">
+<meta property="og:title" content="Pramaan — Always audit-ready">
+<meta property="og:description" content="AI-native QMS for Indian medical device manufacturers. ISO 13485 · MDR 2017 · CDSCO.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#182B3A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBFAF6;        /* document paper */
+  --ink:#182B3A;          /* registrar ink navy */
+  --ink-soft:#44586B;
+  --line:#DCD9CE;         /* hairline on paper */
+  --approve:#1E7A52;      /* approval-stamp green */
+  --approve-soft:#E6F2EC;
+  --finding:#B4402E;      /* audit-finding red, used sparingly */
+  --card:#FFFFFF;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --body:'IBM Plex Sans',system-ui,sans-serif;
+  --display:'Bricolage Grotesque',var(--body);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.6;font-size:16.5px}
+a{color:inherit}
+img{max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+::selection{background:var(--approve);color:#fff}
+a:focus-visible,button:focus-visible{outline:2px solid var(--approve);outline-offset:3px;border-radius:2px}
+
+/* ---------- nav ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(251,250,246,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none}
+.brand b{font-family:var(--display);font-size:1.35rem;font-weight:700;letter-spacing:-.01em}
+.brand span{font-family:var(--mono);font-size:.68rem;color:var(--ink-soft);letter-spacing:.08em}
+nav.links{display:flex;gap:26px;align-items:center}
+nav.links a{text-decoration:none;font-size:.92rem;color:var(--ink-soft)}
+nav.links a:hover{color:var(--ink)}
+.btn{display:inline-block;text-decoration:none;font-weight:600;font-size:.95rem;padding:12px 22px;border-radius:4px;border:1.5px solid var(--ink);transition:transform .12s ease,background .12s ease}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn.primary:hover{background:#0F1E2A}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:#F0EEE6}
+.btn.small{padding:8px 16px;font-size:.85rem}
+@media(max-width:820px){nav.links a:not(.btn){display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:84px 0 72px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+@media(max-width:920px){.hero .wrap{grid-template-columns:1fr}}
+.hero .watermark{position:absolute;inset:0;pointer-events:none;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9vw;letter-spacing:.35em;color:var(--ink);opacity:.03;transform:rotate(-14deg);white-space:nowrap;user-select:none}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.14em;color:var(--approve);text-transform:uppercase;margin-bottom:18px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(2.4rem,5.2vw,3.9rem);line-height:1.04;letter-spacing:-.025em;margin-bottom:22px}
+h1 .stamp{color:var(--approve)}
+.hero p.lede{font-size:1.13rem;color:var(--ink-soft);max-width:34em;margin-bottom:30px}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;color:var(--ink-soft);border:1px solid var(--line);border-radius:999px;padding:6px 13px;background:var(--card)}
+
+/* the signature: a controlled-document readiness report */
+.report{background:var(--card);border:1px solid var(--line);border-radius:6px;box-shadow:0 24px 60px -30px rgba(24,43,58,.35);position:relative}
+.report .doc-head{display:grid;grid-template-columns:1fr auto auto;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.68rem;color:var(--ink-soft)}
+.report .doc-head div{padding:10px 14px;border-right:1px solid var(--line)}
+.report .doc-head div:last-child{border-right:none}
+.report .doc-head b{display:block;color:var(--ink);font-weight:500;font-size:.74rem;margin-top:2px}
+.report .body{padding:22px 24px 24px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
+@media(max-width:460px){.report .body{grid-template-columns:1fr}}
+.score{position:relative;width:132px;height:132px}
+.score svg{transform:rotate(-90deg)}
+.score .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.score .num b{font-family:var(--display);font-size:2rem;line-height:1;font-weight:700}
+.score .num span{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;color:var(--ink-soft)}
+.findings{list-style:none;font-size:.85rem}
+.findings li{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.findings li:last-child{border-bottom:none}
+.findings .clause{font-family:var(--mono);font-size:.72rem;color:var(--ink-soft)}
+.tag{font-family:var(--mono);font-size:.66rem;padding:2px 8px;border-radius:3px;white-space:nowrap}
+.tag.gap{background:#F9E9E5;color:var(--finding)}
+.tag.ok{background:var(--approve-soft);color:var(--approve)}
+.report .stampmark{position:absolute;top:-14px;right:18px;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;color:var(--approve);border:1.5px solid var(--approve);border-radius:3px;padding:4px 10px;background:var(--card);transform:rotate(3deg)}
+
+/* ---------- section scaffolding ---------- */
+section{padding:84px 0;border-top:1px solid var(--line)}
+.sec-label{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px}
+.sec-label b{color:var(--approve);font-weight:500;margin-right:10px}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,3.4vw,2.5rem);letter-spacing:-.02em;line-height:1.12;max-width:22em;margin-bottom:16px}
+.sub{color:var(--ink-soft);max-width:40em;margin-bottom:44px}
+
+/* problem strip */
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+@media(max-width:760px){.strip{grid-template-columns:1fr}}
+.strip div{background:var(--card);padding:26px}
+.strip b{font-family:var(--display);font-size:1.5rem;font-weight:700;display:block;margin-bottom:6px}
+.strip p{font-size:.9rem;color:var(--ink-soft)}
+
+/* features */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:920px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:26px}
+.card .ref{font-family:var(--mono);font-size:.68rem;color:var(--ink-soft);letter-spacing:.06em;display:block;margin-bottom:14px}
+.card h3{font-family:var(--display);font-size:1.12rem;font-weight:600;margin-bottom:10px}
+.card p{font-size:.92rem;color:var(--ink-soft)}
+
+/* how it works */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:step}
+@media(max-width:760px){.steps{grid-template-columns:1fr}}
+.step{border-left:2px solid var(--approve);padding:4px 0 4px 22px}
+.step .n{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;color:var(--approve);display:block;margin-bottom:10px}
+.step h3{font-family:var(--display);font-size:1.15rem;font-weight:600;margin-bottom:8px}
+.step p{font-size:.92rem;color:var(--ink-soft)}
+
+/* pricing */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+@media(max-width:860px){.tiers{grid-template-columns:1fr}}
+.tier{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:30px;display:flex;flex-direction:column}
+.tier.feat{border:1.5px solid var(--ink);position:relative}
+.tier.feat::before{content:"MOST CHOSEN";position:absolute;top:-11px;left:26px;font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;background:var(--ink);color:var(--paper);padding:3px 10px;border-radius:3px}
+.tier h3{font-family:var(--display);font-size:1.2rem;font-weight:700;margin-bottom:4px}
+.tier .for{font-size:.83rem;color:var(--ink-soft);margin-bottom:18px}
+.tier .price{font-family:var(--display);font-size:1.9rem;font-weight:700;letter-spacing:-.02em}
+.tier .per{font-family:var(--mono);font-size:.7rem;color:var(--ink-soft);margin-bottom:20px}
+.tier ul{list-style:none;font-size:.9rem;color:var(--ink-soft);margin-bottom:26px;flex:1}
+.tier li{padding:7px 0;border-bottom:1px dashed var(--line)}
+.tier li::before{content:"✓";color:var(--approve);margin-right:10px;font-weight:600}
+.pilot-note{font-size:.88rem;color:var(--ink-soft);margin-top:26px;max-width:44em}
+
+/* trust */
+.trust{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+@media(max-width:720px){.trust{grid-template-columns:1fr}}
+
+/* contact */
+.contact{background:var(--ink);color:var(--paper);border-radius:8px;padding:56px 48px;text-align:center}
+@media(max-width:600px){.contact{padding:40px 24px}}
+.contact h2{color:var(--paper);margin:0 auto 14px}
+.contact p{color:#B9C6D2;max-width:36em;margin:0 auto 30px}
+.contact .btn.primary{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.contact .mail{display:inline-block;margin-top:18px;font-family:var(--mono);font-size:.85rem;color:#B9C6D2;text-decoration:none;border-bottom:1px dashed #44586B}
+
+/* footer */
+footer{padding:44px 0 56px;border-top:1px solid var(--line);font-size:.85rem;color:var(--ink-soft)}
+footer .row{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:22px}
+footer nav{display:flex;gap:20px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--ink)}
+footer .fine{font-size:.78rem;max-width:56em}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><b>Pramaan</b><span>QMS / प्रमाण</span></a>
+    <nav class="links">
+      <a href="#features">Product</a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#trust">Compliance</a>
+      <a class="btn primary small" href="#contact">Get your gap report</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="watermark" aria-hidden="true">CONTROLLED&nbsp;COPY</div>
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">For Indian medical device manufacturers · ISO 13485 · MDR 2017</div>
+      <h1>Every day should feel like the audit went <span class="stamp">well.</span></h1>
+      <p class="lede">Pramaan means proof — and proof is what every auditor asks for. Pramaan is an AI-native quality management system built for small and mid-size device manufacturers: upload the SOPs you already have, get a clause-by-clause gap report in 30 minutes, and run a living QMS that keeps the evidence inspection-ready between audits, not just before them.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#contact">Get a free gap analysis</a>
+        <a class="btn ghost" href="#how">See how it works</a>
+      </div>
+      <div class="chips">
+        <span class="chip">ISO 13485:2016 clause map</span>
+        <span class="chip">CDSCO · MDR 2017</span>
+        <span class="chip">Part 11-style audit trails</span>
+        <span class="chip">Data hosted in India</span>
+      </div>
+    </div>
+
+    <!-- signature: controlled-document readiness report -->
+    <div class="report reveal" aria-label="Sample audit readiness report">
+      <div class="stampmark">AUDIT-READY</div>
+      <div class="doc-head">
+        <div>DOCUMENT<b>QMS Readiness Report</b></div>
+        <div>REV<b>02</b></div>
+        <div>STATUS<b style="color:var(--approve)">CURRENT</b></div>
+      </div>
+      <div class="body">
+        <div class="score">
+          <svg width="132" height="132" viewBox="0 0 132 132" role="img" aria-label="Readiness score 87 percent">
+            <circle cx="66" cy="66" r="58" fill="none" stroke="#EDEBE2" stroke-width="10"/>
+            <circle id="ring" cx="66" cy="66" r="58" fill="none" stroke="#1E7A52" stroke-width="10" stroke-linecap="round" stroke-dasharray="364" stroke-dashoffset="364"/>
+          </svg>
+          <div class="num"><b id="scoreNum">0%</b><span>READINESS</span></div>
+        </div>
+        <ul class="findings">
+          <li><span><span class="clause">4.2.3</span> &nbsp;Document control</span><span class="tag ok">COMPLIANT</span></li>
+          <li><span><span class="clause">7.5.1</span> &nbsp;Production records</span><span class="tag gap">2 GAPS</span></li>
+          <li><span><span class="clause">8.2.2</span> &nbsp;Complaint handling</span><span class="tag ok">COMPLIANT</span></li>
+          <li><span><span class="clause">8.5.2</span> &nbsp;CAPA effectiveness</span><span class="tag gap">1 OVERDUE</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section>
+  <div class="wrap">
+    <div class="sec-label"><b>SEC 01</b>THE PROBLEM</div>
+    <h2>Quality lives in Excel until the auditor's visit is announced.</h2>
+    <p class="sub">Since the Medical Device Rules, 2017, every device sold in India needs a licensed manufacturer with a working QMS. For most small manufacturers, that means a scramble before every CDSCO or Notified Body audit — and silence in between.</p>
+    <div class="strip">
+      <div class="reveal"><b>₹2–8 lakh</b><p>Typical spend on consultants to prepare documentation before a single audit — repeated every cycle.</p></div>
+      <div class="reveal"><b>Every device</b><p>MDR 2017 brought all device classes under CDSCO regulation. Thousands of manufacturers are newly accountable for ISO 13485-aligned quality systems.</p></div>
+      <div class="reveal"><b>1–3 people</b><p>The size of most quality teams carrying document control, CAPA, complaints, training and audits — largely on paper.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="wrap">
+    <div class="sec-label"><b>SEC 02</b>WHAT PRAMAAN DOES</div>
+    <h2>An AI co-pilot for your quality head — with a human signature on everything.</h2>
+    <p class="sub">Pramaan drafts, tracks and audit-proofs your quality system. Your team reviews and approves. The audit trail records both.</p>
+    <div class="grid">
+      <div class="card reveal"><span class="ref">MODULE / SOP STUDIO</span><h3>Your documents, upgraded</h3><p>Upload your existing SOPs and quality manual — PDF, Word, even scans. Pramaan maps them clause-by-clause to ISO 13485 and MDR 2017 and drafts what's missing for your review.</p></div>
+      <div class="card reveal"><span class="ref">MODULE / SHADOW AUDITOR</span><h3>Continuous inspection</h3><p>Pramaan scans your records the way an inspector would — overdue training, unclosed CAPAs, unsigned documents — and ranks findings by severity before anyone official does.</p></div>
+      <div class="card reveal"><span class="ref">MODULE / CAPA</span><h3>CAPAs that close on time</h3><p>Guided intake from the shop floor with photos, AI-scaffolded root cause analysis, drafted action plans and effectiveness checks, and escalations before deadlines slip.</p></div>
+      <div class="card reveal"><span class="ref">MODULE / COMPLAINTS &amp; VIGILANCE</span><h3>Triage in minutes</h3><p>Every complaint assessed for reportability, linked to batches and CAPAs, with vigilance reports drafted for your sign-off — nothing falls through.</p></div>
+      <div class="card reveal"><span class="ref">MODULE / AUDIT BINDER</span><h3>One-click evidence pack</h3><p>When the audit is announced, assemble the complete evidence package — documents, records, trends, training files — in an afternoon, not three weeks.</p></div>
+      <div class="card reveal"><span class="ref">INCLUDED / VALIDATION PACK</span><h3>Validated out of the box</h3><p>Pre-executed IQ/OQ documentation and PQ templates ship with your subscription, so the software itself stands up to scrutiny.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-label"><b>SEC 03</b>HOW IT WORKS</div>
+    <h2>From a folder of PDFs to audit-ready, in three steps.</h2>
+    <div class="steps" style="margin-top:44px">
+      <div class="step reveal"><span class="n">STEP 1</span><h3>Upload what you have</h3><p>Your SOPs, quality manual, forms and records — in whatever state they're in. No migration project, no consultants required to start.</p></div>
+      <div class="step reveal"><span class="n">STEP 2</span><h3>Read your gap report</h3><p>Within 30 minutes: a readiness score and a prioritised, clause-referenced list of exactly what an auditor would cite — and drafts to close each gap.</p></div>
+      <div class="step reveal"><span class="n">STEP 3</span><h3>Run quality, live</h3><p>CAPAs, complaints, documents and training flow through Pramaan daily. The Shadow Auditor keeps score, so audit day is just another Tuesday.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="sec-label"><b>SEC 04</b>PRICING</div>
+    <h2>Less than one junior QA hire. Always audit-ready.</h2>
+    <div class="tiers" style="margin-top:44px">
+      <div class="tier reveal">
+        <h3>Starter</h3><div class="for">Up to 50 employees · Class A/B devices</div>
+        <div class="price">₹18,000</div><div class="per">PER MONTH · BILLED ANNUALLY</div>
+        <ul><li>Document control &amp; SOP Studio</li><li>CAPA &amp; nonconformance</li><li>10 users</li><li>Email support</li></ul>
+        <a class="btn ghost" href="#contact">Start with a gap analysis</a>
+      </div>
+      <div class="tier feat reveal">
+        <h3>Growth</h3><div class="for">50–200 employees · exporters · Class B/C</div>
+        <div class="price">₹45,000</div><div class="per">PER MONTH · BILLED ANNUALLY</div>
+        <ul><li>All modules, incl. Shadow Auditor</li><li>Complaints &amp; vigilance</li><li>Validation pack (IQ/OQ/PQ)</li><li>25 users · priority support</li></ul>
+        <a class="btn primary" href="#contact">Book a pilot</a>
+      </div>
+      <div class="tier reveal">
+        <h3>Enterprise</h3><div class="for">200+ employees or multi-site</div>
+        <div class="price">Let's talk</div><div class="per">CUSTOM</div>
+        <ul><li>Single-tenant hosting option</li><li>Custom workflows &amp; integrations</li><li>FDA QMSR / EU MDR modes</li><li>Dedicated success manager</li></ul>
+        <a class="btn ghost" href="#contact">Contact us</a>
+      </div>
+    </div>
+    <p class="pilot-note"><strong>60-day paid pilot:</strong> ₹50,000, fully credited against your first year. We onboard your documents, deliver your readiness report, and run one full CAPA cycle with your team — so you decide on evidence, not a demo.</p>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section id="trust">
+  <div class="wrap">
+    <div class="sec-label"><b>SEC 05</b>BUILT FOR REGULATED WORK</div>
+    <h2>AI drafts. Your people decide. The record shows both.</h2>
+    <p class="sub">Pramaan is designed so it can be defended in front of an inspector — because that's the only standard that matters.</p>
+    <div class="trust">
+      <div class="card reveal"><span class="ref">CONTROL / SIGNATURES</span><h3>Human-in-the-loop, always</h3><p>No quality record is ever created, changed or closed by AI alone. Every AI draft is reviewed and e-signed by a named, trained person — and the audit trail distinguishes the two.</p></div>
+      <div class="card reveal"><span class="ref">CONTROL / AUDIT TRAIL</span><h3>Nothing disappears</h3><p>Unique user IDs, server-side timestamps, reason-for-change on every edit, and no deletion — records are voided with justification, exactly as 21 CFR Part 11-style controls expect.</p></div>
+      <div class="card reveal"><span class="ref">CONTROL / DATA</span><h3>Your data stays in India</h3><p>Hosted in Indian data centres with strict tenant isolation. Your quality records are yours — exportable in full, any time, in open formats.</p></div>
+      <div class="card reveal"><span class="ref">CONTROL / VALIDATION</span><h3>We do the validation homework</h3><p>Every release ships with updated validation documentation, so your software validation file stays current without a project each time we improve the product.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact reveal">
+      <h2>See your readiness score this week.</h2>
+      <p>Send us a sample of your SOPs under NDA and we'll return a clause-referenced gap report — free, no commitment. If it's not the most useful document your quality team has seen this year, we'll tell you why not to buy Pramaan.</p>
+      <a class="btn primary" href="mailto:hello@pramaanqms.in?subject=Free%20gap%20analysis">Request your free gap analysis</a>
+      <br>
+      <a class="mail" href="mailto:hello@pramaanqms.in">hello@pramaanqms.in</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <a class="brand" href="#top"><b>Pramaan</b><span>QMS / प्रमाण</span></a>
+      <nav><a href="#features">Product</a><a href="#pricing">Pricing</a><a href="#trust">Compliance</a><a href="#contact">Contact</a></nav>
+    </div>
+    <p class="fine">© 2026 Pramaan. Pramaan supports your quality management system; it does not replace your regulatory responsibilities or professional regulatory advice. ISO 13485 is a trademark of the International Organization for Standardization. Pramaan is not affiliated with or endorsed by CDSCO.</p>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal (respects reduced motion)
+const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const els = document.querySelectorAll('.reveal');
+if (rm) { els.forEach(e=>e.classList.add('in')); }
+else {
+  const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+  els.forEach(e=>io.observe(e));
+}
+// Readiness ring animation to 87%
+const ring = document.getElementById('ring'), num = document.getElementById('scoreNum');
+const target = 87, circ = 364;
+if (rm) { ring.style.strokeDashoffset = circ - circ*target/100; num.textContent = target + '%'; }
+else {
+  let start;
+  function tick(t){ if(!start) start=t; const p=Math.min((t-start)/1200,1); const eased=1-Math.pow(1-p,3);
+    const v=Math.round(target*eased); num.textContent=v+'%'; ring.style.strokeDashoffset=circ-circ*(target*eased)/100;
+    if(p<1) requestAnimationFrame(tick); }
+  requestAnimationFrame(tick);
+}
+</script>
+</body>
+</html>
